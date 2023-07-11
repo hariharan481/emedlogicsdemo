@@ -6,18 +6,15 @@ import { Main } from "./components/Main";
 import { ZeroWidthStack } from "./components/ZeroWidthStack";
 import Codenotes from "./components/Codenotes";
 
-
 function App() {
   return (
-    
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Header/>}/>
-       
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />} />
+        </Routes>
       </BrowserRouter>
-      </>
+    </>
   );
 }
 

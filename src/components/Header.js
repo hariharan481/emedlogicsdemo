@@ -9,7 +9,7 @@ import { Year } from "./Year";
 
 export const Header = () => {
   return (
-    <div>
+    <div className="headpage">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           className="navbar"

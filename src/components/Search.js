@@ -1,15 +1,8 @@
-
-import {
-  Autocomplete,
-  Box,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Autocomplete, Box, Stack, TextField } from "@mui/material";
 import React, { Fragment, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import "../App.css";
 import { Main } from "./Main";
-
 
 const Search = () => {
   const [result, setResult] = useState([]);
@@ -63,10 +56,20 @@ const Search = () => {
               getOptionLabel={(result) => `${result.id} ${result.description}`}
               options={result}
               sx={{
-                width: "1000px",
+                width: "1450px",
                 backgroundColor: "white",
-                height: "25px",
-                ml: "400px",
+                mt: "14px",
+                ml: "110px",
+
+                display: "inline-block",
+                "& input": {
+                  height: "5px",
+                  bgcolor: "background.paper",
+                  color: (theme) =>
+                    theme.palette.getContrastText(
+                      theme.palette.background.paper
+                    ),
+                },
               }}
               isoptionequalToValue={(option, value) =>
                 option.description === value.description
@@ -109,5 +112,3 @@ const Search = () => {
 };
 
 export default Search;
-
-
