@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Stack, TextField } from "@mui/material";
+import { Autocomplete, Box, IconButton, Stack, TextField } from "@mui/material";
 import React, { Fragment, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import "../App.css";
@@ -7,24 +7,28 @@ import { Main } from "./Main";
 const Search = () => {
   const [result, setResult] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const [first, setfirst] = useState("");
-  const [word, setword] = useState("");
+  const [first, setFirst] = useState("");
+  const [word, setWord] = useState("");
   const [isValueSelected, setIsValueSelected] = useState(false);
 
-  function handlechange(e) {
-    setword(e.target.value);
+  function handleChange(e) {
+    setWord(e.target.value);
   }
   console.log(word);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch(`/codes/${word}/matches`);
-        if (response.ok) {
-          const data = await response.json();
-          setResult(data);
+        if (word) {
+          const response = await fetch(`/codes/${word}/matches`);
+          if (response.ok) {
+            const data = await response.json();
+            setResult(data);
+          } else {
+            console.error("Failed to fetch data");
+          }
         } else {
-          console.error("Failed to fetch data");
+          setResult([]);
         }
       } catch (error) {
         console.error("Error:", error);
@@ -35,7 +39,7 @@ const Search = () => {
   console.log("our result is", result);
   console.log(first);
   global.values = first;
-  console.log(global.values.code);
+  console.log(global.values && global.values.code);
   return (
     <>
       <Box
@@ -59,7 +63,7 @@ const Search = () => {
                 width: "1450px",
                 backgroundColor: "white",
                 mt: "14px",
-                ml: "110px",
+                ml: "130px",
 
                 display: "inline-block",
                 "& input": {
@@ -84,9 +88,15 @@ const Search = () => {
                 }
               }}
               onClose={() => setOpen(false)}
-              popupIcon={<SearchIcon />}
+              popupIcon={
+                <SearchIcon
+                  sx={{
+                    "&:hover": { background: "none", boxShadow: "none" }, // Remove the boxShadow property
+                  }}
+                />
+              }
               onChange={(event, newValue) => {
-                setfirst(newValue);
+                setFirst(newValue);
                 setIsValueSelected(true);
               }}
               autoSelect
@@ -95,11 +105,11 @@ const Search = () => {
                   {result.id} {result.description}
                 </Box>
               )}
-              renderInput={(parms) => (
+              renderInput={(params) => (
                 <TextField
-                  {...parms}
-                  onChange={handlechange}
-                  placeholder="search for code"
+                  {...params}
+                  onChange={handleChange}
+                  placeholder="Search for code"
                 />
               )}
             />

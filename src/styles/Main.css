@@ -4,11 +4,7 @@
 
     transition: width 2s;
   }
-  
- .tabs :hover {
-color: red;
-transform: scale(1s);
-  }
+
   .tabularsearch:after,
   .tabularsearch:before {
 	content: '';

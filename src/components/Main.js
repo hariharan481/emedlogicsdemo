@@ -9,6 +9,8 @@ import Chapternotes from "./Chapternotes";
 import "../App.css";
 import "../styles/Main.css";
 import { Translate } from "@mui/icons-material";
+import { Table2 } from "./Table2";
+import { Indexcontent } from "./Indexcontent";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -81,6 +83,8 @@ export const Main = ({ isValueSelected }) => {
               >
                 Index Search
               </Typography>
+
+              <Indexcontent />
             </Box>
           </Box>
 
@@ -125,10 +129,10 @@ export const Main = ({ isValueSelected }) => {
                 fontFamily={"sans-serif"}
                 color={" #4185d2"}
                 fontWeight={600}
-                ml={-24}
+                ml={-28}
                 sx={{
                   borderBottom: "0.3px solid grey",
-                  width: "125%",
+                  width: "132%",
                 }}
               >
                 Code details
@@ -146,33 +150,48 @@ export const Main = ({ isValueSelected }) => {
                 <Box
                   className="tabs"
                   sx={{
-                    height: "25px",
-                    width: "878px",
+                    height: "35px",
+                    width: "920px",
                     backgroundColor: "#c8e2dd",
                     color: "black",
                     fontFamily: "sans-serif",
                     fontSize: "13px",
-                    marginLeft: "-200px",
+
                     mt: "20px",
-                    ml: "-195px",
+                    ml: "-219px",
+                    textAlign: "center",
                   }}
                 >
                   <Stack direction={"row"} gap={"70px"} ml={5}>
                     <Box sx={{ width: "100%" }}>
-                      <Box sx={{ marginTop: "-14px" }}>
+                      <Box
+                        sx={{
+                          marginTop: "-13px",
+                        }}
+                      >
                         <Tabs
+                          textColor="primary"
+                          indicatorColor="primary"
                           className="tabs"
                           value={value}
                           onChange={handleChange}
                           aria-label="basic tabs example"
                           sx={{
                             marginLeft: "-45px",
+                            "& .MuiTab-root.Mui-selected": {
+                              color: "black",
+                              textAlign: "center",
+                              fontWeight: 520,
+                              transition: "1s",
+                            },
                           }}
                           TabIndicatorProps={{
                             style: {
-                              width: "80px",
-                              marginLeft: "15px",
+                              marginLeft: "8px",
                               transition: "1s",
+                              height: "70%",
+                              backgroundColor: "#203fac",
+                              opacity: 0.3,
                             },
                           }}
                         >
@@ -186,6 +205,7 @@ export const Main = ({ isValueSelected }) => {
                               fontWeight: "700px",
                               color: "#4185d2",
                               textTransform: "none",
+                              width: "150px",
                             }}
                             label=" Code notes"
                             {...a11yProps(0)}
@@ -200,6 +220,7 @@ export const Main = ({ isValueSelected }) => {
                               fontWeight: "700px",
                               color: "#4185d2",
                               textTransform: "none",
+                              width: "150px",
                             }}
                             variant="subtitle1"
                             fontWeight={"700"}
@@ -217,6 +238,7 @@ export const Main = ({ isValueSelected }) => {
                               fontWeight: "700px",
                               color: "#4185d2",
                               textTransform: "none",
+                              width: "150px",
                             }}
                             variant="subtitle1"
                             fontWeight={"700"}
@@ -233,6 +255,7 @@ export const Main = ({ isValueSelected }) => {
                               fontWeight: "700px",
                               color: "#4185d2",
                               textTransform: "none",
+                              width: "150px",
                             }}
                             variant="subtitle1"
                             fontWeight={"700"}
@@ -241,17 +264,30 @@ export const Main = ({ isValueSelected }) => {
                           />
                         </Tabs>
                       </Box>
-                      <CustomTabPanel value={value} index={0}>
-                        <Codenotes />
-                      </CustomTabPanel>
-                      <CustomTabPanel value={value} index={1}>
-                        <Sectionnotes />
-                      </CustomTabPanel>
-                      <CustomTabPanel value={value} index={2}>
-                        <Chapternotes />
-                      </CustomTabPanel>
-
-                      <CustomTabPanel value={value} index={3}></CustomTabPanel>
+                      <div
+                        className="tabpanels"
+                        style={{
+                          height: "180px",
+                          width: "850px",
+                          overflowY: "scroll",
+                          paddingLeft: "30px",
+                        }}
+                      >
+                        {" "}
+                        <CustomTabPanel value={value} index={0}>
+                          <Codenotes />
+                        </CustomTabPanel>
+                        <CustomTabPanel value={value} index={1}>
+                          <Sectionnotes />
+                        </CustomTabPanel>
+                        <CustomTabPanel value={value} index={2}>
+                          <Chapternotes />
+                        </CustomTabPanel>
+                        <CustomTabPanel
+                          value={value}
+                          index={3}
+                        ></CustomTabPanel>
+                      </div>
                     </Box>
                   </Stack>
                 </Box>

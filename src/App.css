@@ -10,9 +10,9 @@ table {
 th,
 td {
 
-  align-items: center;
-  text-align: center;
-  padding: 5px;
+  align-items: left;
+  text-align: left;
+ 
   line-height: 1;
   color: black;
   font-size: small;
@@ -100,3 +100,17 @@ td {
 .chapter{
   margin-left: -150px;
 }
+.chaptertd{
+ text-transform: uppercase;
+ font-weight: bold;
+
+}
+.chaptertds{
+  
+
+}
+ .chaptertr{
+ 
+ }
+
+ 

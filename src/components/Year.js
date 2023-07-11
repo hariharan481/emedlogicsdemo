@@ -4,6 +4,8 @@ import "../styles/Year.css";
 export const Year = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [first, setFirst] = useState("");
+
   const options = [
     { value: "option1", label: "2024" },
     { value: "option1", label: "2023" },
@@ -15,11 +17,16 @@ export const Year = () => {
     { value: "option3", label: "2017" },
     { value: "option3", label: "2016" },
   ];
+
   const toggleDropdown = () => setIsOpen(!isOpen);
+
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
+
+  global.years = selectedOption ? selectedOption.label : ""; // Check if selectedOption exists before accessing its label
+  console.log(global.years);
 
   return (
     <div>
@@ -29,7 +36,9 @@ export const Year = () => {
           onMouseEnter={() => setIsOpen(true)}
           onClick={toggleDropdown}
         >
-          {selectedOption ? selectedOption.label : "Year"}
+          {selectedOption && selectedOption.label
+            ? selectedOption.label
+            : "Year"}
         </button>
         {isOpen && (
           <ul className="dropdown__menu">
