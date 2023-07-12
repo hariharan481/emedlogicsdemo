@@ -4,7 +4,7 @@ stages {
      
         stage('Build') {
        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hariharan481/emedlogicsdemo.git']])
-                bat 'npm install'
+                sh 'npm install'
             }
         }
     
