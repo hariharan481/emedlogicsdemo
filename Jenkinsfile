@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bat 'node --17-alpine'
+                sh 'node --17-alpine'
                 
             }
         }
