@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:17-alpine
 WORKDIR /democlarirproject
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
