@@ -1,11 +1,16 @@
-pipeline {
-    agent { dockerfile true }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --17-alpine'
-                
+pipeline{
+    agent any
+stages {
+     
+        stage('Build') {
+       checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hariharan481/emedlogicsdemo.git']])
+                bat 'npm install'
             }
         }
-    }
+    
+     steps {
+        script {
+          docker.build("17-alpine").run('-p 8009:3000')
+        }
+      }
 }
