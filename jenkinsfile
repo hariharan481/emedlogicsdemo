@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    tools{
+        nodejs 'node'
+    }
+    stages{
+        stage('Build Github'){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hariharan481/emedlogicsdemo.git']])
+                sh 'npm install'
+            }
+        }
+        stage('Build docker image'){
+            steps{
+                
+              sh 'docker run -p 8009:3000 -t node:17-alpine'
+                
+            }
+        }
+    }
+}
