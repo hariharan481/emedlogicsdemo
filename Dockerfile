@@ -1,4 +1,4 @@
-FROM node:17-alpine
+FROM node:18-alpine
 WORKDIR /emedlogixdemo
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
