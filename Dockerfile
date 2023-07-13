@@ -1,5 +1,5 @@
 FROM node:17-alpine
-WORKDIR /democlarirproject
+WORKDIR /emedlogix
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
 RUN npm run build
