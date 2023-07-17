@@ -1,5 +1,5 @@
 FROM node:17-alpine
-WORKDIR /usr/src/app
+WORKDIR democlaritproject
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
 RUN npm install
