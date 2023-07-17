@@ -1,8 +1,7 @@
-FROM node:18-alpine
-WORKDIR /emedlogixdemo
-COPY ./package*.json ./
+FROM node:latest
+WORKDIR /usr/src/app
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
-RUN npm run build
+RUN npm install
 EXPOSE 3000
 CMD [ "npm","start" ]
