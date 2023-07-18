@@ -1,5 +1,5 @@
 FROM node:17-alpine
-WORKDIR /Myapp
+WORKDIR /myapp
 COPY package*.json ./
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
