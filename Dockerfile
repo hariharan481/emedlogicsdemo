@@ -1,8 +1,9 @@
-FROM node:17-alpine
+FROM node:latest
 WORKDIR /emedlogix
-COPY package.json .
+COPY package.json package-lock.json ./
+RUN npm install
 ENV PATH="./node_modules/.bin:$PATH"
-RUN npm run build
 COPY  . .
+RUN npm run build
 EXPOSE 3000
 CMD [ "npm","start" ]
