@@ -1,5 +1,5 @@
-FROM node:17-alpine
-WORKDIR /emedlogix
+FROM node:14
+WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 ENV PATH="./node_modules/.bin:$PATH"
