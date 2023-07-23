@@ -1,6 +1,6 @@
 FROM node:17-alpine
-WORKDIR /app
-COPY package.json .
+WORKDIR /emedlogix
+ENV PATH="./node_modules/.bin:$PATH"
 RUN npm install
 COPY  . .
 EXPOSE 3000
