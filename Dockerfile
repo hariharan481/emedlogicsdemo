@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:17-alpine
 WORKDIR /emedlogix
 COPY package.json package-lock.json ./
 RUN npm install
