@@ -1,5 +1,6 @@
 FROM node:14-alpine
-WORKDIR /app
+WORKDIR /emedlogix
+ENV PATH="./node_modules/.bin:$PATH"
 COPY package*.json ./
 RUN npm install
 COPY  . .
