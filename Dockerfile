@@ -1,5 +1,5 @@
 FROM node:18.12.1-alpine
-WORKDIR /emedlogicsdemo
+WORKDIR /claritproject1
 ENV PATH="./node_modules/.bin:$PATH"
 COPY  . .
 RUN npm install
