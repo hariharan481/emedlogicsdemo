@@ -1,5 +1,5 @@
 FROM node:14-alpine
-WORKDIR /myapp-emd
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY  . .
