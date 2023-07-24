@@ -1,4 +1,4 @@
-FROM node:17-alpine
+FROM node:14-alpine
 WORKDIR /myapp-emd
 COPY package*.json ./
 RUN npm insall
